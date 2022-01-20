@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+        GO!
+      </div>
+    </div>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+
+    <div class="nav-links">
+      <a id="surveyGraphBtn" href="#" class="logged-In" style="display:none">Survey Results</a>
+      <a id="surveyList" href="#" class="logged-In" style="display:none">Frameworks</a>
+      <a id="logoutBtn" href="#" class="logged-In" style="display:none">Log out</a>
+      <a id="signUpBtn" href="#" class="logged-Out" style="display:none">Sign up</a>
+      <a id="loginBtn" href="#" class="logged-Out" style="display:none">Login</a>
+    </div>
+  </div>
+
+  <div id="contentWrapper">
+    <div id="signUpForm">
+      <h1 style="text-align: center;">Sign up</h1>
+      <form id="form" style="margin: 0 auto;" class = "formLogin">
+        <div class="row">
+          <label for="email">Email</label>
+          <input id="mailField" type="email" name="email" autocomplete="off" placeholder="email@example.com" required>
+        </div>
+        <div class="row">
+          <label for="password">Password</label>
+          <input id="passField" type="password" name="password" required>
+        </div>
+        <button type="submit" class="buttonSend">Login</button>
+      </form>
+    </div>
+
+    <div id="loginForm">
+      <h1 style="text-align: center;">Login</h1>
+      <form id="form2" style="margin: 0 auto;" class = "formLogin">
+        <div class="row">
+          <label for="email">Email</label>
+          <input id="mailField2" type="email" name="email" autocomplete="off" placeholder="email@example.com" required>
+        </div>
+        <div class="row">
+          <label for="password">Password</label>
+          <input id="passField2" type="password" name="password" required>
+        </div>
+        <button type="submit" class="buttonSend">Login</button>
+      </form>
+    </div>
+
+    <div id="frameworks">
+        <h1>Frameworks</h1>
+        <div id="p1">
+
+          <select id="frameworksList">
+            <option value="">Select Framework Group</option>
+          </select>
+        </div>
+        <div id="p2">
+          <form id ="frameworkTechnologyQuestions">
+            <input id="buttonToPageSelfDescription" type="submit" value="Submit">
+          </form>
+        </div>
+
+      </div>
+   
+<div id="surveyGraph">
+  <canvas id="myChart" style="background-color: snow;"></canvas>
+</div>
+
+  </div>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-firestore.js"></script>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDoXMjbAbrg8ZLcdkd0gXixECvcn0HAz2Q",
+      authDomain: "research-choices-e24be.firebaseapp.com",
+      projectId: "research-choices-e24be",
+      storageBucket: "research-choices-e24be.appspot.com",
+      messagingSenderId: "1040740763644",
+      appId: "1:1040740763644:web:b42f5a4a3743789bb6d479"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+//db.settings({timestampsInSnapshots:true});
+  </script>
+  <script src="scripts/auth.js"></script>
+  <script src="scripts/index.js"></script>
+</body>
+
+</html>
