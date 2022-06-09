@@ -38,8 +38,10 @@ signupForm.addEventListener("submit", (e) => {
     e.preventDefault()
     let userEmail = document.getElementById("mailField").value;
     let userPassword = document.getElementById("passField").value;
-    auth.createUserWithEmailAndPassword(userEmail, userPassword).then(x=>{
+    auth.createUserWithEmailAndPassword(userEmail, userPassword).then(x => {
         location.reload()
+    }).catch(function (e) {
+        alert(e)
     });
 
 });
@@ -53,7 +55,9 @@ loginForm.addEventListener("submit", (e) => {
     e.preventDefault()
     let userEmail = document.getElementById("mailField2").value;
     let userPassword = document.getElementById("passField2").value;
-    auth.signInWithEmailAndPassword(userEmail, userPassword).then(x => { location.reload() });
+    auth.signInWithEmailAndPassword(userEmail, userPassword).then(x => { location.reload() }).catch(function (e) {
+        alert(e)
+    });
 });
 
 function getAnsweredQuestions() {
@@ -78,7 +82,8 @@ pageFrameworkQuestions.addEventListener("submit", (e) => {
     if (questionnaireAnswers) {
         db.collection("WebFrameworksStats").doc(frameworkChoice.value).update({
             [currentlyLoggedUser]: questionnaireAnswers
-        }).then(x => { location.reload() });
+        }).then(x => { location.reload() }).catch(function (e) {
+            alert(e)
+        });
     }
-
 })
